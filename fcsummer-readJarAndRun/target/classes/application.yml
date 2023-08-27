@@ -1,0 +1,3 @@
+fcsummer:
+  docker:
+    tcp: tcp://your-docker-host:2375
