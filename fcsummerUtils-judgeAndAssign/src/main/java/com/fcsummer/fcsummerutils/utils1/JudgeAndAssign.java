@@ -13,7 +13,6 @@ import java.util.List;
  */
 @Target({ElementType.METHOD,ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
 public @interface JudgeAndAssign {
     String[] value() default {""};
     boolean isCallBackNullProperty() default false;

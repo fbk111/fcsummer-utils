@@ -9,7 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>fcsummerUtils-judgeAndAssign</artifactId>
+    <groupId>com.fcsummer</groupId>
+    <artifactId>fcsummer-readJarAndRun</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -43,6 +44,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.docker-java/docker-java -->
+        <dependency>
+            <groupId>com.github.docker-java</groupId>
+            <artifactId>docker-java</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
+
 
     </dependencies>
 </project>

@@ -1,0 +1,7 @@
+al:
+  sign:
+    url: https://member.aliyundrive.com/v1/activity/sign_in_list?_rx-s=mobile
+  update:
+    url: https://auth.aliyundrive.com/v2/account/token
+  refresh:
+    token: 524efeb45f2e4beba9c245296f7f9f9c

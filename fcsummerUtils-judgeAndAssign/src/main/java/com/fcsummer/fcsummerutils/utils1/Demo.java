@@ -1,5 +1,7 @@
 package com.fcsummer.fcsummerutils.utils1;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Title: Demo
  * @Author Fcsummer
@@ -7,6 +9,7 @@ package com.fcsummer.fcsummerutils.utils1;
  * @Date 2023/8/25 16:14
  * @description: 测试
  */
+@Component
 public class Demo {
 
     public static void main(String[] args) {
@@ -14,6 +17,7 @@ public class Demo {
     }
 
 
+    @JudgeAndAssign
     public void demo1(@JudgeAndAssign Person person){
         System.out.println("执行");
     }

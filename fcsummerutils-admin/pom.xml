@@ -7,9 +7,14 @@
         <groupId>io.github.fbk111</groupId>
         <artifactId>fcsummerUtils</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
     </parent>
-
-    <artifactId>fcsummerUtils-judgeAndAssign</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>../fcsummerUtils-judgeAndAssign</module>
+    </modules>
+    <groupId>com.fcsummer</groupId>
+    <artifactId>fcsummerutils-admin</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

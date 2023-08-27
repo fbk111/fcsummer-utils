@@ -27,9 +27,10 @@ public class AspectJudgeAndAssign {
 
     }
 
-    @Before("pointcut()")
-    public void beforeMethodExecution(JoinPoint joinPoint){
+    @Around("pointcut()")
+    public Object beforeMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args = joinPoint.getArgs();
         System.out.println(Arrays.toString(args));
+        return null;
     }
 }
