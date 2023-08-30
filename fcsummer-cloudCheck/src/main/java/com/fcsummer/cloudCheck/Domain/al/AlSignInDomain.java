@@ -1,4 +1,4 @@
-package com.fcsummer.cloudCheck.Domain;
+package com.fcsummer.cloudCheck.Domain.al;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,7 +41,7 @@ public class AlSignInDomain {
     /**
      * result
      */
-    private ResultDTO result;
+    private AlResultDTO result;
     /**
      * arguments
      */

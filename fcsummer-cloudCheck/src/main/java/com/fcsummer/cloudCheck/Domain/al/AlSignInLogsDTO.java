@@ -1,4 +1,4 @@
-package com.fcsummer.cloudCheck.Domain;
+package com.fcsummer.cloudCheck.Domain.al;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class SignInLogsDTO {
+public class AlSignInLogsDTO {
     /**
      * day
      */
@@ -64,7 +64,7 @@ public class SignInLogsDTO {
     /**
      * reward
      */
-    private RewardDTO reward;
+    private AlRewardDTO reward;
     /**
      * isReward
      */

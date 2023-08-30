@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
  * @Date 2023/8/24 19:38
  * @description: 检验所有数字字符串均不为空
  */
+
 public class ForObjectAllNotNull {
 
     /**

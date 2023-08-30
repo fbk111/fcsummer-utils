@@ -11,7 +11,7 @@ import java.util.List;
  * @Date 2023/8/25 15:15
  * @description: 判断属性并且赋值注解
  */
-@Target({ElementType.METHOD,ElementType.PARAMETER})
+@Target({ElementType.PARAMETER,ElementType.METHOD,})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface JudgeAndAssign {
     String[] value() default {""};

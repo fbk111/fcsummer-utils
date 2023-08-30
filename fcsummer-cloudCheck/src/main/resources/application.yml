@@ -5,3 +5,11 @@ al:
     url: https://auth.aliyundrive.com/v2/account/token
   refresh:
     token: 524efeb45f2e4beba9c245296f7f9f9c
+server:
+  port: 9099
+spring:
+  application:
+    name: fcsummer-cloud-check
+mail:
+  send:
+    to: 2290291854@qq.com

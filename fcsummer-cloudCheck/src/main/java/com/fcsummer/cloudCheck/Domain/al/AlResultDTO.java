@@ -1,4 +1,4 @@
-package com.fcsummer.cloudCheck.Domain;
+package com.fcsummer.cloudCheck.Domain.al;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class ResultDTO {
+public class AlResultDTO {
     /**
      * subject
      */
@@ -58,5 +58,5 @@ public class ResultDTO {
     /**
      * signInLogs
      */
-    private List<SignInLogsDTO> signInLogs;
+    private List<AlSignInLogsDTO> signInLogs;
 }

@@ -1,16 +1,16 @@
 package com.fcsummer.cloudCheck.request;
 
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONArray;
+import cn.hutool.extra.mail.MailUtil;
 import cn.hutool.json.JSONUtil;
-import com.fcsummer.cloudCheck.Domain.AlDomain;
+import com.fcsummer.cloudCheck.Domain.al.AlDomain;
+import com.fcsummer.cloudCheck.util.FcMailUtil;
 import lombok.SneakyThrows;
 import okhttp3.*;
-import org.apache.http.client.HttpClient;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
+import java.util.List;
 
 /**
  * @Title: AlRequest
@@ -34,12 +34,15 @@ public class AlRequest {
     private static String REFRESH_TOKEN;
 
     private static final OkHttpClient httpClient=new OkHttpClient();
+
+    private static final List<String> checkList=new ArrayList<>();
+    static {
+        checkList.add(REFRESH_TOKEN);
+    }
     //进行签到
     @SneakyThrows
     public static void sign_in(String accessToken) {
-
         OkHttpClient client = new OkHttpClient();
-
         MediaType mediaType = MediaType.parse("application/json");
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("isReward",false);
@@ -55,15 +58,16 @@ public class AlRequest {
 
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
-
-        System.out.println(responseBody);
+        FcMailUtil.sendMail();
     }
 
-    public static void main(String[] args) {
-        String accessToken = getAccessToken(REFRESH_TOKEN);
-        sign_in(accessToken);
-    }
 
+    public static void getStart(){
+        for (String refreshToken : checkList) {
+            String accessToken = getAccessToken(refreshToken);
+            sign_in(accessToken);
+        }
+    }
 
     @SneakyThrows
     public static String getAccessToken(String refreshToken){

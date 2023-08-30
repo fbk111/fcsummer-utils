@@ -17,9 +17,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="fcsummer-cloudCheck" options="-parameters" />
       <module name="fcsummer-readJarAndRun" options="-parameters" />
-      <module name="fcsummerUtils" options="-parameters" />
+      <module name="fcsummerUtils" options="" />
       <module name="fcsummerUtils-judgeAndAssign" options="-parameters" />
-      <module name="fcsummerutils-admin" options="-parameters" />
+      <module name="fcsummerutils-admin" options="" />
     </option>
   </component>
 </project>
