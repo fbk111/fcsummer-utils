@@ -4,7 +4,7 @@ al:
   update:
     url: https://auth.aliyundrive.com/v2/account/token
   refresh:
-    token: 524efeb45f2e4beba9c245296f7f9f9c
+    token: 自己的refresh_token
 server:
   port: 9099
 spring:
