@@ -41,7 +41,7 @@ public class AlSignInDomain {
     /**
      * result
      */
-    private AlResultDTO result;
+    private AlSignInResultDomain result;
     /**
      * arguments
      */

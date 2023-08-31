@@ -14,7 +14,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class AlResultDTO {
+public class AlSignInResultDomain {
     /**
      * subject
      */

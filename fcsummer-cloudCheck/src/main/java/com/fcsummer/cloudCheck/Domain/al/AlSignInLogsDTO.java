@@ -32,7 +32,7 @@ public class AlSignInLogsDTO {
     /**
      * notice
      */
-    private Object notice;
+    private String notice;
     /**
      * type
      */

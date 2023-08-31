@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,21 +31,22 @@ public class JudgeAndAssignAspect {
 
     @Around("pointcut()")
     public Object beforeMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
-
-        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-
-        JudgeAndAssign judgeAndAssign = methodSignature.getMethod().getDeclaringClass().getAnnotation(JudgeAndAssign.class);
+        Object[] args = joinPoint.getArgs();
+        ArrayList<Object> newArgList = new ArrayList<>();
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        JudgeAndAssign judgeAndAssign = signature.getMethod().getAnnotation(JudgeAndAssign.class);
         boolean assign = judgeAndAssign.assign();
         boolean callBackNullProperty = judgeAndAssign.isCallBackNullProperty();
-        String[] value = judgeAndAssign.value();
-        List<String> valueList = Arrays.stream(value).collect(Collectors.toList());
-        Object[] args = joinPoint.getArgs();
+        String[] checkTypeNumbers = judgeAndAssign.value();
+        List<String> checkTypeList = Arrays.asList(checkTypeNumbers);
         for (int i = 0; i < args.length; i++) {
-            Class<?> property = args[i].getClass();
-            BackVo backVo = ForObjectAllNotNull.check(property, valueList, callBackNullProperty, assign);
-            Object backObject = backVo.getBackObject();
-            args[i] = backObject;
+            BackVo<Object> check = ForObjectAllNotNull.check(args[i], checkTypeList, callBackNullProperty, assign);
+            newArgList.add(ForObjectAllNotNull.check(check.getBackObject(),checkTypeList,callBackNullProperty,assign));
         }
-        return joinPoint.proceed(args);
+        Object[] newArgs = newArgList.toArray();
+        Object result = joinPoint.proceed(newArgs);
+
+        return result;
     }
+
 }

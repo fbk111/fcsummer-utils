@@ -1,8 +1,12 @@
 package com.fcsummer.cloudCheck.request;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.extra.mail.MailUtil;
 import cn.hutool.json.JSONUtil;
 import com.fcsummer.cloudCheck.Domain.al.AlDomain;
+import com.fcsummer.cloudCheck.Domain.al.AlSignInResultDomain;
+import com.fcsummer.cloudCheck.Domain.al.AlSignInDomain;
+import com.fcsummer.cloudCheck.util.FcDateUtils;
 import com.fcsummer.cloudCheck.util.FcMailUtil;
 import lombok.SneakyThrows;
 import okhttp3.*;
@@ -22,16 +26,16 @@ import java.util.List;
 public class AlRequest {
 
 
-    @Value("${al.sign.url}")
-    private static String SIGN_URL;
+//    @Value("${al.sign.url}")
+    private static String SIGN_URL="https://member.aliyundrive.com/v1/activity/sign_in_list?_rx-s=mobile";
 
 
-    @Value("${al.update.url}")
-    private static  String UPDATE_URL;
+//    @Value("${al.update.url}")
+    private static  String UPDATE_URL="https://auth.aliyundrive.com/v2/account/token";
 
 
-    @Value("${al.refresh.token}")
-    private static String REFRESH_TOKEN;
+//    @Value("${al.refresh.token}")
+    private static String REFRESH_TOKEN="524efeb45f2e4beba9c245296f7f9f9c";
 
     private static final OkHttpClient httpClient=new OkHttpClient();
 
@@ -58,6 +62,16 @@ public class AlRequest {
 
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
+        AlSignInDomain alSignInDomain = JSONUtil.toBean(responseBody, AlSignInDomain.class);
+        Boolean success = alSignInDomain.getSuccess();
+        if(success){
+            AlSignInResultDomain result = alSignInDomain.getResult();
+            Integer signInCount = result.getSignInCount();
+            String notice = result.getSignInLogs().get(signInCount-1).getReward().getNotice();
+            FcMailUtil.sendMailSuccess(notice);
+        }else{
+           FcMailUtil.sendMailFail();
+        }
         FcMailUtil.sendMail();
     }
 

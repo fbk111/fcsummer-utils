@@ -1,9 +1,11 @@
 com\fcsummer\cloudCheck\CloudCheckApplication.class
 com\fcsummer\cloudCheck\Domain\al\AlUserDataDomain.class
+com\fcsummer\cloudCheck\util\FcMailUtil.class
 com\fcsummer\cloudCheck\Domain\al\AlSignInLogsDTO.class
+com\fcsummer\cloudCheck\Domain\al\AlSignInResultDomain.class
+com\fcsummer\cloudCheck\util\FcDateUtils.class
 com\fcsummer\cloudCheck\schedule\ScheduleCheck.class
 com\fcsummer\cloudCheck\Domain\al\AlDomain.class
 com\fcsummer\cloudCheck\Domain\al\AlRewardDTO.class
 com\fcsummer\cloudCheck\request\AlRequest.class
 com\fcsummer\cloudCheck\Domain\al\AlSignInDomain.class
-com\fcsummer\cloudCheck\Domain\al\AlResultDTO.class

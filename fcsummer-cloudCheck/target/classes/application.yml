@@ -10,6 +10,3 @@ server:
 spring:
   application:
     name: fcsummer-cloud-check
-mail:
-  send:
-    to: 2290291854@qq.com

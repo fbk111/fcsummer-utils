@@ -44,7 +44,7 @@ public class AlRewardDTO {
     /**
      * notice
      */
-    private Object notice;
+    private String notice;
     /**
      * subNotice
      */
